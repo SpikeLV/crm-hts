@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class UserBase(BaseModel):
     email: str
@@ -11,3 +12,6 @@ class UserCreate(UserBase):
 
 class UserRead(UserBase):
     id: int
+    email: str
+    is_active: bool
+    is_superuser: bool
