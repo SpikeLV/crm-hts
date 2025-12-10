@@ -10,7 +10,6 @@ class FipersBase(BaseModel):
     ssn: Optional[str] = None
     
     # Non-encrypted fields (less sensitive or required for indexing)
-    middle_name: Optional[str] = None
     gender: Optional[str] = None
     birth_date: Optional[date] = None
     phone: Optional[str] = None
