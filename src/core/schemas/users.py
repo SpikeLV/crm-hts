@@ -1,14 +1,13 @@
 from pydantic import BaseModel
 
-class User(BaseModel):
-    id: int
+class UserBase(BaseModel):
     email: str
     password: str
-    is_active: bool
-    is_superuser: bool
+    is_active: bool = True
+    is_superuser: bool = False
 
-class UserCreate(User):
+class UserCreate(UserBase):
     pass
 
-class UserRead(User):
+class UserRead(UserBase):
     id: int

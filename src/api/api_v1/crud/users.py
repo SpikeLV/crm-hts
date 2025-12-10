@@ -11,7 +11,12 @@ async def get_all(session: AsyncSession) -> Sequence[User]:
     return result.all()
 
 async def create(session: AsyncSession, user_create: UserCreate) -> User:
-    user = User(email=user_create.email, password=user_create.password)
+    user = User(
+        email=user_create.email,
+        password=user_create.password,
+        is_active=user_create.is_active,
+        is_superuser=user_create.is_superuser
+    )
     session.add(user)
     await session.commit()
     await session.refresh(user)

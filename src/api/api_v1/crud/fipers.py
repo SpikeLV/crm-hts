@@ -25,8 +25,6 @@ async def create(session: AsyncSession, fiper_create: FipersCreate) -> FipersMod
         birth_date=fiper_create.birth_date,
         phone=fiper_create.phone,
         email=fiper_create.email,
-        height=fiper_create.height,
-        weight=fiper_create.weight,
         address=fiper_create.address,
         city=fiper_create.city,
         state=fiper_create.state,

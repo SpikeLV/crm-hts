@@ -17,9 +17,6 @@ class Fipers(Base):
     middle_name: Mapped[str] = mapped_column(String(255), nullable=True)
     gender: Mapped[str] = mapped_column(String(255), nullable=True)
     birth_date: Mapped[date] = mapped_column(Date, nullable=True)
-
-    height: Mapped[int] = mapped_column(Integer, nullable=True)
-    weight: Mapped[int] = mapped_column(Integer, nullable=True)
     
     phone: Mapped[str] = mapped_column(String(255), nullable=True)
     email: Mapped[str] = mapped_column(String(255), nullable=True)

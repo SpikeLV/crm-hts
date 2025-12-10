@@ -14,7 +14,7 @@ async def get_all(
         Depends(db_helper.session_getter)
     ],
 ) -> list[UserRead]:
-    users = await users_crood.get_all_users(session=session)
+    users = await users_crood.get_all(session=session)
     return users
 
 @router.post("/", response_model=UserRead)
@@ -25,7 +25,7 @@ async def create(
         Depends(db_helper.session_getter)
     ],
 ) -> UserRead:
-    user = await users_crood.create_user(
+    user = await users_crood.create(
         session=session, 
         user_create=user_create
     )
