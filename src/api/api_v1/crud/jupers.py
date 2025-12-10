@@ -21,10 +21,9 @@ async def create(session: AsyncSession, jupers_create: JupersCreate) -> JupersMo
         reg_nr=jupers_create.reg_nr,
         type=jupers_create.type,
         address=jupers_create.address,
-        city=jupers_create.city,
-        state=jupers_create.state,
-        zip=jupers_create.zip,
-        country=jupers_create.country,
+        phone=jupers_create.phone,
+        email=jupers_create.email,
+        notes=jupers_create.notes,
     )
     session.add(jupers)
     await session.commit()
