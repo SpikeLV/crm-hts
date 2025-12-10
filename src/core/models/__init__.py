@@ -5,6 +5,7 @@ __all__ = (
     "Fipers",
     "Jupers",
     "Project",
+    "Invoice",
  )
 
 from .db_helper import db_helper
@@ -14,3 +15,4 @@ from .user import User
 from .fipers import Fipers
 from .jupers import Jupers
 from .project import Project
+from .invoice import Invoice

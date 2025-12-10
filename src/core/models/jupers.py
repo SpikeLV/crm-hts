@@ -1,8 +1,12 @@
 from datetime import date
+from typing import List, TYPE_CHECKING
 from core.models.base import Base
 from core.column_types import EncryptedString
 from sqlalchemy import Date, String, Integer
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+if TYPE_CHECKING:
+    from .invoice import Invoice
 
 
 class Jupers(Base):
@@ -14,3 +18,6 @@ class Jupers(Base):
     phone: Mapped[str] = mapped_column(String(255), nullable=True)
     email: Mapped[str] = mapped_column(String(255), nullable=True)
     notes: Mapped[str] = mapped_column(String(255), nullable=True)
+
+    # Relationship: One Jupers to many Invoices
+    invoices: Mapped[List["Invoice"]] = relationship("Invoice", back_populates="jupers")
