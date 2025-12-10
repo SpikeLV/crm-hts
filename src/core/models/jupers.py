@@ -10,7 +10,6 @@ class Jupers(Base):
         
     name: Mapped[str] = mapped_column(EncryptedString(255), nullable=False)
     reg_nr: Mapped[str] = mapped_column(EncryptedString(255), nullable=False)
-    type: Mapped[str] = mapped_column(String(255), nullable=False)
     address: Mapped[str] = mapped_column(String(255), nullable=True)
     phone: Mapped[str] = mapped_column(String(255), nullable=True)
     email: Mapped[str] = mapped_column(String(255), nullable=True)

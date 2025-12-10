@@ -16,19 +16,22 @@ async def get_by_id(session: AsyncSession, jupers_id: int) -> Optional[JupersMod
     return result
 
 async def create(session: AsyncSession, jupers_create: JupersCreate) -> JupersModel:
-    jupers = JupersModel(
-        name=jupers_create.name,
-        reg_nr=jupers_create.reg_nr,
-        type=jupers_create.type,
-        address=jupers_create.address,
-        phone=jupers_create.phone,
-        email=jupers_create.email,
-        notes=jupers_create.notes,
-    )
-    session.add(jupers)
-    await session.commit()
-    await session.refresh(jupers)
-    return jupers
+    try:
+        jupers = JupersModel(
+            name=jupers_create.name,
+            reg_nr=jupers_create.reg_nr,
+            address=jupers_create.address if jupers_create.address else None,
+            phone=jupers_create.phone if jupers_create.phone else None,
+            email=jupers_create.email if jupers_create.email else None,
+            notes=jupers_create.notes if jupers_create.notes else None,
+        )
+        session.add(jupers)
+        await session.commit()
+        await session.refresh(jupers)
+        return jupers
+    except Exception as e:
+        await session.rollback()
+        raise
 
 async def update(session: AsyncSession, jupers_id: int, jupers_update: JupersUpdate) -> Optional[JupersModel]:
     jupers = await get_by_id(session, jupers_id)
