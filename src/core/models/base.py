@@ -12,5 +12,5 @@ class Base(DeclarativeBase):
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now, onupdate=datetime.now, nullable=True)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=None, onupdate=datetime.now, nullable=True)
     deleted_at: Mapped[datetime] = mapped_column(DateTime, default=None, nullable=True)

@@ -1,7 +1,7 @@
-from datetime import date
+from datetime import datetime
 from typing import TYPE_CHECKING, List
 from core.models.base import Base
-from sqlalchemy import String, Date, Integer, Numeric, ForeignKey, func
+from sqlalchemy import String, Date, Integer, Numeric, ForeignKey, func, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 if TYPE_CHECKING:
@@ -13,9 +13,9 @@ class Invoice(Base):
     __tablename__ = "invoices"
 
     invoice_number: Mapped[str] = mapped_column(String(255), nullable=False)
-    invoice_date: Mapped[date] = mapped_column(Date, nullable=False, server_default=func.now())
+    invoice_date: Mapped[datetime] = Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
     invoice_amount: Mapped[float] = mapped_column(Numeric(precision=10, scale=2), nullable=True)
-    invoice_payment_date: Mapped[date] = mapped_column(Date, nullable=True)
+    invoice_payment_date: Mapped[datetime] = mapped_column(DateTime, nullable=True)
     invoice_description: Mapped[str] = mapped_column(String(255), nullable=True)
     project_id: Mapped[int] = mapped_column(Integer, nullable=False)
     jupers_id: Mapped[int] = mapped_column(Integer, ForeignKey("jupers.id"), nullable=False)
