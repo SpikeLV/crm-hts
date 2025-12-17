@@ -2,7 +2,6 @@ from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
 class ProjectBase(BaseModel):
-    id: int
     project_code: str
     project_status:  Optional[str] = None
     project_budget: Optional[float] = None

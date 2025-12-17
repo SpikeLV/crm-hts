@@ -22,8 +22,6 @@ async def create(session: AsyncSession, invoice_create: InvoiceCreate) -> Invoic
             invoice_date=invoice_create.invoice_date,
             invoice_amount=invoice_create.invoice_amount,
             invoice_payment_date=invoice_create.invoice_payment_date,
-            invoice_payed_amount=invoice_create.invoice_payed_amount,
-            invoice_payed_date=invoice_create.invoice_payed_date,
             invoice_description=invoice_create.invoice_description,
             project_id=invoice_create.project_id,
             jupers_id=invoice_create.jupers_id,
