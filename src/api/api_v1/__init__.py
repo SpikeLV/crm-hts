@@ -6,6 +6,7 @@ from .fipers import router as fipers_router
 from .jupers import router as jupers_router
 from .project import router as project_router
 from .invoice import router as invoice_router
+from .payment import router as payment_router
 
 ROUTERS: list[tuple[APIRouter, str]] = [
     (users_router, settings.api.v1.users),
@@ -13,6 +14,7 @@ ROUTERS: list[tuple[APIRouter, str]] = [
     (jupers_router, settings.api.v1.jupers),
     (project_router, settings.api.v1.project),
     (invoice_router, settings.api.v1.invoice),
+    (payment_router, settings.api.v1.payment),
 ]
 
 router = APIRouter()

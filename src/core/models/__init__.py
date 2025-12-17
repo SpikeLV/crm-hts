@@ -6,6 +6,7 @@ __all__ = (
     "Jupers",
     "Project",
     "Invoice",
+    "Payment",
  )
 
 from .db_helper import db_helper
@@ -16,3 +17,4 @@ from .fipers import Fipers
 from .jupers import Jupers
 from .project import Project
 from .invoice import Invoice
+from .payment import Payment

@@ -13,6 +13,7 @@ class ApiV1Prefix(BaseModel):
     jupers: str = "/jupers"
     project: str = "/project"
     invoice: str = "/invoice"
+    payment: str = "/payment"
 
 
 class ApiPrefix(BaseModel):
