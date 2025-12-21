@@ -50,6 +50,6 @@ async def delete(session: AsyncSession, payment_id: int) -> Optional[PaymentMode
     if not payment:
         return None
     
-    session.delete(payment)
+    await session.delete(payment)
     await session.commit()
     return payment

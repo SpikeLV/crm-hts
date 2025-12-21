@@ -3,8 +3,6 @@ from datetime import date
 from typing import Optional
 
 class JupersBase(BaseModel):
-    model_config = ConfigDict(extra='forbid')
-
     name: str
     reg_nr: str
     address: Optional[str] = None
