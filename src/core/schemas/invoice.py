@@ -25,4 +25,6 @@ class InvoiceUpdate(InvoiceBase):
     jupers_id: Optional[int] = None
 
 class InvoiceRead(InvoiceBase):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int

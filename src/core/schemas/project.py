@@ -33,4 +33,6 @@ class ProjectUpdate(ProjectBase):
     project_description: Optional[str] = None
 
 class ProjectRead(ProjectBase):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int

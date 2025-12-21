@@ -24,4 +24,6 @@ class JupersUpdate(BaseModel):
     notes: Optional[str] = None
 
 class JupersRead(JupersBase):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int
